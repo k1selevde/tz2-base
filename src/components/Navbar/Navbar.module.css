@@ -1,0 +1,40 @@
+.content {
+    margin: auto;
+    width: 50%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.item {
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: black;
+}
+.item:hover {
+    color: firebrick;
+    text-decoration: none;
+}
+
+.activeItem {
+    color: red
+}
+
+.activeItem:hover {
+    color: red;
+}
+
+.status {
+    color: black;
+    border: .5px solid black;
+    font-size: 13px;
+    padding: 2px 4px;
+}
+
+.notStatus {
+    color: cornflowerblue;
+    user-select: none;
+}
