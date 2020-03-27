@@ -1,0 +1,36 @@
+.newsContainer {
+    padding-top: 15px;
+}
+
+.newsTitle {
+    color: blueviolet;
+    font-size: 20px;
+}
+
+.newsCount {
+    color: hotpink;
+    font-size: 18px;
+    font-weight: 700;
+    display: inline-block;
+    width: 20px;
+    margin-right: 16px;
+    margin-left: 6px;
+}
+
+.fetchBtn {
+    width: 250px;
+    white-space: nowrap;
+    border-radius: 5px;
+    border: 1px solid forestgreen;
+    background-color: green;
+    padding: 14px 16px;
+    color: white;
+    margin-bottom: 25px;
+}
+.fetchBtn:hover {
+    background-color: forestgreen;
+}
+
+
+
+

@@ -1,3 +1,10 @@
-export const LOG_IN = 'LOG_IN'
-export const LOG_OUT = 'LOG_OUT'
-export const LOG_IN_FAILURE = 'LOG_IN_FAILURE'
+export const LOG_IN = 'SESSION/LOG_IN'
+export const LOG_OUT = 'SESSION/LOG_OUT'
+export const LOG_IN_FAILURE = 'SESSION/LOG_IN_FAILURE'
+export const HIDE_ALERT = 'SESSION/HIDE_ALERT'
+export const FETCH_NEWS = 'NEWS/FETCH_NEWS'
+export const SHOW_LOADER = 'NEWS/SHOW_LOADER'
+export const HIDE_LOADER = 'NEWS/HIDE_LOADER'
+
+
+

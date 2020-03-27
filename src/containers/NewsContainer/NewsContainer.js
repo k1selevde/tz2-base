@@ -1,21 +1,16 @@
-import React from 'react'
+import {connect} from 'react-redux'
+import News from "../../components/News/News";
+import {fetchNews} from "../../actions/newsActions";
 
-const NewsContainer = () => {
-    return (
-        <div className="container">
-            <div className="card-list">
-                <div className="card card1">
-                    <img src="/" className="card-img-top" alt="photo" />
-                        <div className="card-body">
-                            <h5 className="card-title">Card title</h5>
-                            <p className="card-text">Some quick example text to build on the card title and make up the
-                                bulk of the card's content.</p>
-                            <a href="#" className="btn btn-primary">Go somewhere</a>
-                        </div>
-                </div>
-            </div>
-        </div>
-    )
-}
 
-export default NewsContainer;
+const mapStateToProps = (state) => ({
+    isLoading: state.news.isLoading,
+    news: state.news.newsList
+})
+
+
+const mapDispatchToProps = (dispatch) => ({
+    fetchNews: (count) => dispatch(fetchNews(count))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(News);

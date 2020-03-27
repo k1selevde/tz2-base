@@ -32,6 +32,7 @@
     border: .5px solid black;
     font-size: 13px;
     padding: 2px 4px;
+    user-select: none;
 }
 
 .notStatus {

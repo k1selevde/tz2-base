@@ -1,3 +1,3 @@
-export function checkCredentials(params) {
-    return (params.username.toLowerCase() == 'admin' && params.password == '12345')
+export function checkCredentials({username = '', password = ''}) {
+    return (username.toLowerCase() === 'admin' && password === '12345')
 }

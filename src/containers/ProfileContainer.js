@@ -1,19 +1,14 @@
-import React from 'react'
-import {Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
-
-
-
-const ProfileContainer = ({isAuth}) => {
-    return (
-        <div>
-            {isAuth ? <div>ВЫ ВОШЛИ КАК АДМИН</div> : <Redirect  to="/Login"/>}
-        </div>
-    )
-}
+import {Redirect} from 'react-router-dom'
+import {logOut} from "../actions/sessionActions";
+import Profile from "../components/Profile";
 
 const mapStateToProps = state => ({
     isAuth: state.session.isAuth
 });
 
-export default connect(mapStateToProps,null)(ProfileContainer);
+const mapDispatchToProps = dispatch => ({
+    logOut: () => dispatch(logOut())
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(Profile);

@@ -1,5 +1,7 @@
 import React from 'react'
+import {Redirect} from 'react-router-dom'
 import s from './Login.module.css'
+import Alert from "../Alert";
 
 class Login extends React.Component {
     constructor(props) {
@@ -14,6 +16,8 @@ class Login extends React.Component {
         const {username, password} = this.state;
         // dispatch here
         this.props.logIn({username, password})
+
+        setTimeout((() => this.props.hideAlert()), 1500)
     }
 
     changeHandler = e => {
@@ -25,18 +29,12 @@ class Login extends React.Component {
 
     }
 
-    exitHandler = e => {
-        e.preventDefault();
-        // dispatch
-        this.props.logOut();
-    }
-
     render() {
 
         if(this.props.isAuth) {
             return (
                 <div>
-                    <p>ВЫ вошли!11!</p>
+                    <Redirect  to='/Profile'/>
                     <button className="btn btn-dark" onClick={this.exitHandler}>ВЫЙТИ</button>
                 </div>
             )
@@ -44,6 +42,7 @@ class Login extends React.Component {
 
         return (
             <div>
+                {this.props.error && <Alert errorText={this.props.error}/>}
                 <form onSubmit={this.submitHandler}>
                     <div className="form-group">
                         <label htmlFor="login">Login</label>
@@ -73,7 +72,7 @@ class Login extends React.Component {
                             anyone else.
                         </small>
                     </div>
-                    <button type="submit" className="btn btn-primary">Войти</button>
+                    <button type="submit" className="btn btn-primary" disabled={!!this.props.error}>Войти</button>
                 </form>
             </div>
         )

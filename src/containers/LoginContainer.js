@@ -1,16 +1,17 @@
 import React from 'react'
 import {connect} from "react-redux"
 import Login from "../components/Login/Login";
-import {logIn, logOut} from "../actions/sessionActions";
+import {hideAlert, logIn} from "../actions/sessionActions";
 
 
 const mapStateToProps = state => ({
-    isAuth: state.session.isAuth
+    isAuth: state.session.isAuth,
+    error: state.session.errorMsg
 })
 
 const mapDispatchToProps = dispatch => ({
     logIn: (params) => dispatch(logIn(params)),
-    logOut: () => dispatch(logOut())
+    hideAlert: () => dispatch(hideAlert())
 })
 
 
