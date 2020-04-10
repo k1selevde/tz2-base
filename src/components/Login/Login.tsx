@@ -1,17 +1,28 @@
-import React from 'react'
+import React, {ChangeEvent, FormEvent} from 'react'
 import {Redirect} from 'react-router-dom'
-import s from './Login.module.css'
 import Alert from "../Alert";
 
-class Login extends React.Component {
-    constructor(props) {
-        super();
-        this.state = {
 
-        }
+type PropsType = {
+    isAuth: boolean
+    error: string
+    logIn: (p: object) => void
+    hideAlert: () => void
+}
+
+type StateType = {
+    username: string,
+    password: string
+}
+
+class Login extends React.Component<PropsType,StateType> {
+    state = {
+        username: '',
+        password: ''
     }
 
-    submitHandler = e => {
+
+    submitHandler = (e : FormEvent<HTMLFormElement> ) => {
         e.preventDefault();
         const {username, password} = this.state;
         // dispatch here
@@ -20,7 +31,7 @@ class Login extends React.Component {
         setTimeout((() => this.props.hideAlert()), 1500)
     }
 
-    changeHandler = e => {
+    changeHandler = (e : ChangeEvent<HTMLInputElement>) => {
         e.persist();
         this.setState(prev => ({
             ...prev, ...{
@@ -30,16 +41,14 @@ class Login extends React.Component {
     }
 
     render() {
-
         if(this.props.isAuth) {
             return (
                 <div>
                     <Redirect  to='/Profile'/>
-                    <button className="btn btn-dark" onClick={this.exitHandler}>ВЫЙТИ</button>
+                    <button className="btn btn-dark">ВЫЙТИ</button>
                 </div>
             )
         }
-
         return (
             <div>
                 {this.props.error && <Alert errorText={this.props.error}/>}
@@ -52,6 +61,7 @@ class Login extends React.Component {
                             id="login"
                             name="username"
                             onChange={this.changeHandler}
+
                         />
 
                             <small id="emailHelp" className="form-text text-muted">We'll never share your login with

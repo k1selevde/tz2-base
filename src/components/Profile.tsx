@@ -1,12 +1,15 @@
 import React from 'react'
 import {Redirect} from 'react-router-dom'
-import {connect} from 'react-redux'
 
 
+type PropsType = {
+    isAuth: boolean
+    logOut: () => void
+}
 
-class Profile extends React.Component {
+class Profile extends React.Component<PropsType> {
 
-    exitHandler = e => {
+    exitHandler: (e: any) => void = e => {
         e.preventDefault();
         // dispatch
         this.props.logOut();

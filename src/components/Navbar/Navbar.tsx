@@ -2,10 +2,12 @@ import React from 'react'
 import {NavLink} from "react-router-dom";
 import s from './Navbar.module.css';
 import {useSelector} from "react-redux";
-
+import {AppStateType} from "../../reducers/rootReducer";
 
 const Navbar = () => {
-  const  isAuth =  useSelector(state => state.session.isAuth);
+
+  const initial = (state: AppStateType) => state.session.isAuth;
+  const isAuth =  useSelector(initial);
   return (
       <nav className={s.content}>
           <NavLink to="/" exact className={s.item} activeClassName={s.activeItem}>Home</NavLink>

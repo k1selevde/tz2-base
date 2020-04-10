@@ -8,10 +8,12 @@ import * as serviceWorker from './serviceWorker';
 import rootReducer from "./reducers/rootReducer";
 
 
+
 const store = createStore(rootReducer, (localStorage.getItem('redux-store')) ? JSON.parse(localStorage['redux-store']) : {} , compose(
     applyMiddleware(
-        thunk
+       thunk
     ),
+    // @ts-ignore
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 ))
 
@@ -20,11 +22,15 @@ store.subscribe(() => {
     localStorage.setItem('redux-store', JSON.stringify(store.getState()))
 })
 
+
 const app = (
     <Provider store={store}>
         <App />
     </Provider>
 )
+
+// @ts-ignore
+window.__store__ = store
 
 
 

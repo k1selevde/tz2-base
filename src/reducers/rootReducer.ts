@@ -7,4 +7,9 @@ const rootReducer = combineReducers({
     news: newsReducer
 });
 
+
+type RootReducerType = typeof rootReducer // (globalstate: ..) => State
+export type AppStateType = ReturnType<RootReducerType>
+
+
 export default rootReducer;

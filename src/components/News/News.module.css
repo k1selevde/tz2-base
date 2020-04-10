@@ -27,6 +27,20 @@
     color: white;
     margin-bottom: 25px;
 }
+
+.disabledFetchBtn {
+    width: 250px;
+    white-space: nowrap;
+    border-radius: 5px;
+    border: 1px solid forestgreen;
+    background-color: green;
+    opacity: 0.7;
+    padding: 14px 16px;
+    color: white;
+    margin-bottom: 25px;
+}
+
+
 .fetchBtn:hover {
     background-color: forestgreen;
 }
